@@ -20,3 +20,11 @@ Implementare un filtro di ricerca nella index che mostri solo i post che hanno u
 In Show e Destroy, controllare se il parametro si riferisce ad un post esistente, in caso contrario, rispondere con uno stato 404 e un messaggio d’errore, sempre in formato JSON.
 
 Buon Lavoro e buon divertimento
+
+### Cosa ho imparato 
+Ho organizzato meglio il codice separando le rotte dai controller, migliorando la struttura del progetto.
+Ho usato require per importare dati esterni (l’array di post) e per riutilizzare funzioni tra file.
+Ho implementato le operazioni CRUD reali con risposte HTTP corrette, gestendo anche gli errori con status 404.
+Ho imparato a usare Postman per testare gli endpoint, simulando chiamate reali e verificando il comportamento delle chiamate.
+
+## Consegna 04/08/2025 
