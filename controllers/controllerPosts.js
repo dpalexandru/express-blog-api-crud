@@ -11,8 +11,20 @@ const show = (req, res) => {
 
 }
 
+const store = (req, res) => {
+    res.send(`Sezione creazione nuovo post`)
+}
+
+const update = (req, res) => {
+    const id = parseInt(req.params.id);
+    res.send(`Sezione intero aggiornamento post n: ${id}`)
+
+}
+
 
 module.exports = {
     index,
-    show
+    show,
+    store,
+    update
 }
