@@ -41,7 +41,22 @@ const modify = (req, res) => {
 //definisco funzione DESTROY
 const destroy = (req, res) => {
     const id = parseInt(req.params.id);
-    res.send(`Sezione ELIMINAZIONE post n: ${id}`)
+
+    //cerco l'elemento da eliminare attraverso id 
+    const index = posts.findIndex(item => item.id === id);
+
+    // Verifichiamo se abbiamo trovato l'elemento cercato
+    if (index === -1) {
+        return res.status(404).json({ error: "404 Not found", message: "post non trovato" })
+    }
+
+    //Eliminiamo l'elemento solo se trovato 
+    posts.splice(index, 1);
+
+    res.sendStatus(204);
+
+    //verifichiamo in console l'avvenuta elimizazione del post desiderato
+    console.log(posts);
 }
 
 //esporto tutte le funzioni in un oggetto
