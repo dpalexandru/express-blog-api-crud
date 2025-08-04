@@ -2,8 +2,27 @@ const posts = require('../data/posts.js');
 
 //definisco funzione Index
 const index = (req, res) => {
-    res.json(posts);
-}
+    let filteredPostsByTag = posts;
+
+    if (req.query.tags) {
+        const tagSearched = req.query.tags.toLowerCase();
+
+        filteredPostsByTag = posts.filter(post => {
+            // Preparo una copia dell'array di tag già in lowercase
+            const lowerTags = post.tags.map(t => t.toLowerCase());
+            return lowerTags.includes(tagSearched);
+        });
+
+        if (filteredPostsByTag.length === 0) {
+            return res.status(404).json({
+                error: "404 Not found",
+                message: "post non trovato con il tag ricercato"
+            })
+        }
+    }
+
+    res.json(filteredPostsByTag);
+};
 
 //definisco funzione Show
 const show = (req, res) => {
