@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const postsObject = require('../content/posts.js')
+const { index } = require('../controllers/controllerPosts.js')
     //console.log(postsObject)
 
 //definisco la route principale Index
-router.get("/", (req, res) => {
-    res.json(postsObject)
-});
+router.get('/', index);
 
 //definisco la route Show principale con id e restituisco l'articolo con id ricevuto
 router.get("/:id", (req, res) => {
