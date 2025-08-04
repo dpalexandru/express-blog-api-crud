@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { index, show, store, update } = require('../controllers/controllerPosts.js')
-    //console.log(postsObject)
+const { index, show, store, update, modify, destroy } = require('../controllers/controllerPosts.js')
 
 //definisco la route principale Index
 router.get('/', index);
@@ -10,20 +9,16 @@ router.get('/', index);
 router.get("/:id", show);
 
 //definisco la route per Creare un post
-router.post("/", store)
+router.post("/", store);
 
 //definisco la route per Modificare totale un post
-router.put("/:id", update)
+router.put("/:id", update);
 
 //definisco la route per Modificare parziale di un post
-router.patch("/:id", (req, res) => {
-    res.send(`Modifica parziale del post n: ${req.params.id}`)
-});
+router.patch("/:id", modify);
 
 //definisco la route per Eliminare  di un post
-router.delete("/:id", (req, res) => {
-    res.send(`Cancellazione del post: ${req.params.id}`)
-});
+router.delete("/:id", destroy);
 
 //esporto le route
 module.exports = router;
