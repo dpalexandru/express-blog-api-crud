@@ -1,9 +1,8 @@
-const postsObject = require('../content/posts.js');
+const posts = require('../data/posts.js');
 
 //definisco funzione Index
 const index = (req, res) => {
-    res.send("Index del mio blog")
-        ////  res.json(postsObject)
+    res.json(posts);
 }
 
 //definisco funzione Show
