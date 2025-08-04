@@ -8,8 +8,16 @@ const index = (req, res) => {
 //definisco funzione Show
 const show = (req, res) => {
     const id = parseInt(req.params.id);
-    res.send(`Dettaglio del post n: ${id}`)
 
+    //trovo l'elemento nell'array posts attraverso l'id
+    const post = posts.find(item => item.id === id);
+
+    //verifico se la pizza è stata trovata 
+    if (!post) {
+        return res.status(404).json({ error: "404 Not found", message: "post non trovato" })
+    }
+
+    res.send(post);
 }
 
 //definisco funzione Store
