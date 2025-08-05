@@ -39,6 +39,7 @@ Ho imparato a usare Postman per testare gli endpoint, simulando chiamate reali e
  
  ### Esercizio
  
+ 
  **Milestone 1**
  
  Per iniziare, andiamo su Postman e prepariamo una nuova chiamata verso la nostra rotta store. 

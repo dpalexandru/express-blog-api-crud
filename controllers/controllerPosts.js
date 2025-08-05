@@ -41,6 +41,7 @@ const show = (req, res) => {
 
 //definisco funzione Store
 const store = (req, res) => {
+    console.log(req.body)
     res.send(`Sezione creazione nuovo post`)
 }
 
