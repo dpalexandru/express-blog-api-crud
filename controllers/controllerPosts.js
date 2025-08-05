@@ -46,7 +46,7 @@ const store = (req, res) => {
     //destrutturing oggetto ricevuto
     const { title, content, image, tags } = req.body;
 
-    // campi obbligatori in inmput
+    // campi obbligatori in input
     if (!title || !content || !image || !tags) {
         return res.status(400).json({ error: 'title, content, image e tags sono obbligatori' });
     }
@@ -61,8 +61,27 @@ const store = (req, res) => {
 //definisco funzione Update
 const update = (req, res) => {
     const id = parseInt(req.params.id);
-    res.send(`Sezione intero aggiornamento post n: ${id}`)
 
+    //recupero il post richiesto
+    const post = posts.find(item => item.id === id)
+
+    //controlliamo se 'id inserito corrisponde a un id esistente
+    if (!post) { res.status(404).json({ error: "404 Non trovato", message: "Id inserito non corrisponde con post esistente" }) }
+    //destrutturo oggetto in input
+    const { title, content, image, tags } = req.body;
+    // campi obbligatori in input
+    if (!title || !content || !image || !tags) {
+        return res.status(400).json({ error: 'title, content, image e tags sono obbligatori' });
+    }
+
+
+    //modifico i dati del post
+    post.title = title;
+    post.content = content;
+    post.image = image;
+    post.tags = tags;
+
+    res.json(posts);
 }
 
 //definisco funzione Modify
