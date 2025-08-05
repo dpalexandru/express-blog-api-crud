@@ -70,3 +70,11 @@ Ho imparato a usare Postman per testare gli endpoint, simulando chiamate reali e
  - In Update, controllare se il parametro si riferisce ad un post esistente, in caso contrario, rispondere con uno stato 404 e un messaggio d’errore, sempre in formato JSON.
  
  Buon Lavoro e buon divertimento
+
+ ### Cosa ho imparato 
+ o imparato a usare express.json() come middleware essenziale per poter accedere correttamente a req.body e ho testato il funzionamento stampando i dati ricevuti nel terminale.
+
+Successivamente ho implementato la logica per aggiungere un nuovo post a un array simulando un database, generando un nuovo id, e restituendo una risposta JSON con status 201.
+Infine, ho applicato lo stesso principio per la rotta PUT, imparando a validare l’input, verificare l’esistenza del post da modificare e aggiornare solo i campi previsti, evitando errori come la doppia risposta o l’accesso a oggetti undefined.
+
+ ## Consegna 05/08/2025 
