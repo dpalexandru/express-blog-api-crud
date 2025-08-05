@@ -87,7 +87,24 @@ const update = (req, res) => {
 //definisco funzione Modify
 const modify = (req, res) => {
     const id = parseInt(req.params.id);
-    res.send(`Sezione aggiornamento parziale post n: ${id}`)
+
+    //recupero il post richiesto
+    const post = posts.find(item => item.id === id);
+
+    if (!post) { return res.status(404).json({ error: "404 Non trovato", message: "Id inserito non corrisponde con post esistente" }) }
+    //destrutturo oggetto in input
+    const { title } = req.body;
+    // campi obbligatori in input
+    if (!title) {
+        return res.status(400).json({ error: 'title obbligatorio' });
+    };
+
+    //modifico i dati del post
+    post.title = title;
+
+    res.json(post);
+
+
 }
 
 //definisco funzione DESTROY
