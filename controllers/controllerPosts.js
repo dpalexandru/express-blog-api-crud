@@ -41,9 +41,22 @@ const show = (req, res) => {
 
 //definisco funzione Store
 const store = (req, res) => {
-    console.log(req.body)
-    res.send(`Sezione creazione nuovo post`)
-}
+    // nuovo id partendo dall'ultimo presete
+    const newId = posts[posts.length - 1].id + 1;
+    //destrutturing oggetto ricevuto
+    const { title, content, image, tags } = req.body;
+
+    // campi obbligatori in inmput
+    if (!title || !content || !image || !tags) {
+        return res.status(400).json({ error: 'title, content, image e tags sono obbligatori' });
+    }
+    //creo e aggiungo nuovo oggetto
+    const newPost = { id: newId, title, content, image, tags };
+    posts.push(newPost);
+
+    //stato corretto e restituzione oggetto appena creato
+    return res.status(201).json(newPost);
+};
 
 //definisco funzione Update
 const update = (req, res) => {
