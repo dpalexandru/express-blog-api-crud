@@ -5,8 +5,12 @@ const port = 3000;
 //importo le routes 
 const postRoutes = require('./routers/posts.js')
 
+const errorHandler = require('./middlewears/errorsHeadler.js')
+
 // body parsere per recuperare le informazioni passate tramite body della richiesta
 app.use(express.json());
+//middlware
+app.use(express.static('public'));
 
 //creo la routs principale 
 app.get("/", (req, res) => {
@@ -16,12 +20,8 @@ app.get("/", (req, res) => {
 //autorizzo all'uso delle routes a posts
 app.use('/posts', postRoutes);
 
-// body parsere per recuperare le informazioni passate tramite body della richiesta
-app.use(express.json());
-
-
-//middlware
-app.use(express.static('public'));
+//middlwere che restituisce un ogetto con l'errore in caso di errori
+app.use(errorHandler);
 
 //lascio il server in ascolto sulla porto stabilit
 app.listen(port, () => {
