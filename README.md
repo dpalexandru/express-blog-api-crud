@@ -85,3 +85,9 @@ Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inseren
 
 Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
 Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.
+
+### Cosa ho imparato
+
+In questa terza parte dell'esercizio ho capito l'importanza di gestire gli errori ritornando un oggetto in certe occasioni come la pagina non trovata o quando vi è un errore interno a una funzine.
+
+ ## Consegna 06/08/2025 
