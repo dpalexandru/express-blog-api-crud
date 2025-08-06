@@ -78,3 +78,10 @@ Successivamente ho implementato la logica per aggiungere un nuovo post a un arra
 Infine, ho applicato lo stesso principio per la rotta PUT, imparando a validare l’input, verificare l’esistenza del post da modificare e aggiornare solo i campi previsti, evitando errori come la doppia risposta o l’accesso a oggetti undefined.
 
  ## Consegna 05/08/2025 
+
+### Esercizio 3
+
+Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inserendo un middleware per la gestione delle rotte non registrate e uno per la gestione degli errori.
+
+Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
+Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.
