@@ -6,6 +6,7 @@ const port = 3000;
 const postRoutes = require('./routers/posts.js')
 
 const errorHandler = require('./middlewears/errorsHeadler.js')
+const notFound = require('./middlewears/notFound.js')
 
 // body parsere per recuperare le informazioni passate tramite body della richiesta
 app.use(express.json());
@@ -20,6 +21,8 @@ app.get("/", (req, res) => {
 //autorizzo all'uso delle routes a posts
 app.use('/posts', postRoutes);
 
+//middlewere 404 not found
+app.use(notFound);
 //middlwere che restituisce un ogetto con l'errore in caso di errori
 app.use(errorHandler);
 
